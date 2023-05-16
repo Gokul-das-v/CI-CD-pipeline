@@ -23,7 +23,7 @@ pipeline {
                   }
                   }
 
-        stage('Pushing') {
+        stage('Deplpoying') {
             steps {
                  sh './jenkins/deploy/deploy.sh'
                   }
