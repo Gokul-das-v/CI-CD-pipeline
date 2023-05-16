@@ -1,6 +1,12 @@
 pipeline {
     agent any
-    stages {
+    
+    environment{
+      		PASS = credentials('PASS')
+              }
+    
+     stages {
+
         stage('Building') {
             steps {
 		sh '''
