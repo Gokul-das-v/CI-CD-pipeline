@@ -1,33 +1,32 @@
 pipeline {
     agent any
-  
     stages {
         stage('Building') {
             steps {
-                echo "************************** "
-                echo '**********Building!!!!!****'
-                echo "************************** "
 		sh '''
 		   ./jenkins/build/mvn_build.sh mvn -B -DskipTests clean package
 		   ./jenkins/build/build.sh
  		  
 		   '''
                  }
-                          }
+                 }
+
         stage('Tesing') {
             steps {
                 sh './jenkins/test/mvn_test.sh mvn test'
                  }
-                        }
+                 }
+
         stage('Pushing') {
             steps {
                  sh './jenkins/push/push.sh'
                   }
-                           }
+                  }
+
         stage('Pushing') {
             steps {
                  sh './jenkins/deploy/deploy.sh'
                   }
-                           }
+            	 }
               }
           }
