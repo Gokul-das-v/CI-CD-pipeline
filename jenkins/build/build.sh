@@ -10,5 +10,6 @@ echo "*********Navigate to build folder******"
 
 echo "***********Building Docker Image ******"
 #Building docker image of the application
+
 docker-compose build --no-cache
 
